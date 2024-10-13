@@ -6,9 +6,9 @@ export default async function handler(req, res) {
             const client = await clientPromise;
             const db = client.db('FlashForge');
 
-            // Insert a new user into the "users" collection
-            const { name, email } = req.body;
-            const result = await db.collection('users').insertOne({ name, email });
+            // Insert a new user with name, email, and password
+            const { name, email, password } = req.body;
+            const result = await db.collection('users').insertOne({ name, email, password });
 
             res.status(201).json({ message: 'User added', result });
         } catch (error) {

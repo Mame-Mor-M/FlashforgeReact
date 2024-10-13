@@ -1,41 +1,45 @@
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar a.active {
+    background-color: #0070f3;
+    color: white;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
 /* Global styles for the entire application */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f4f4f4;
-    padding: 20px;
     margin: 0;
-}
-
-.container {
-    text-align: center;
-    margin-top: 40px;
-}
-
-/* Deck categories (Home Page) */
-.deck-categories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-.category-box {
-    background-color: #e74c3c;
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.category-box:hover {
-    background-color: #c0392b;
-    transform: translateY(-5px);
+    padding: 0;
 }
 
 /* Flash animation */
@@ -55,7 +59,7 @@ body {
     animation: flash 0.5s ease-in-out;
 }
 
-/* Flashcard styles (Deck View Page) */
+/* Flashcard styles */
 .flashcard-container {
     display: flex;
     flex-direction: column;
@@ -114,7 +118,8 @@ body {
 
 .login-container input {
     display: block;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
     margin: 10px auto;
     font-size: 16px;
@@ -145,7 +150,8 @@ body {
 
 .create-container input {
     display: block;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
     margin: 10px auto;
     font-size: 16px;
@@ -169,6 +175,7 @@ body {
     background-color: #8e44ad;
 }
 
+/* Settings page styles */
 .settings-container {
     text-align: center;
     margin-top: 50px;
@@ -195,11 +202,22 @@ body.dark-mode {
     color: #ffffff;
 }
 
+/* Add User Section Styles */
 .add-user-section {
     margin-top: 50px;
 }
 
+/* Form Layout */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling the form fields */
 .form-group {
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 15px;
 }
 
@@ -209,13 +227,16 @@ body.dark-mode {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 5px 0 10px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
+/* Button Styling */
 button {
     padding: 10px 20px;
     background-color: #0070f3;
@@ -227,4 +248,121 @@ button {
 
 button:hover {
     background-color: #005bb5;
+}
+
+/* Deck categories (Home Page) */
+.deck-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.category-box {
+    background-color: #e74c3c;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.category-box:hover {
+    background-color: #c0392b;
+    transform: translateY(-5px);
+}
+
+/* Additional Global Improvements */
+h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2980b9;
+    margin-bottom: 10px;
+    letter-spacing: 1.2px;
+}
+
+p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border: 1px solid #bdc3c7;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Flexbox centering */
+.create-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-container .card-input {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.create-container .input-field {
+    padding: 12px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.create-container .input-field:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.add-card-btn {
+    padding: 12px 20px;
+    background-color: #8e44ad;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.add-card-btn:hover {
+    background-color: #9b59b6;
 }

@@ -5,6 +5,7 @@ export default function Home() {
   // State for handling the form inputs
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   // Handle form submission to add new users
   const handleSubmit = async (e) => {
@@ -14,65 +15,87 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name, email, password }),
     });
 
     if (res.ok) {
       alert('User added successfully');
       setName('');  // Clear the form
       setEmail(''); // Clear the form
+      setPassword(''); // Clear the password field
     } else {
       alert('Error adding user');
     }
   };
 
   return (
-    <div className="container">
-      <h1>Welcome to FlashForge!</h1>
-      <p>Your flashcard tool for Software Engineering and CS students.</p>
-
-      {/* Flashcard Categories */}
-      <div className="deck-categories">
-        <Link href="/decks/software-design">
-          <div className="category-box flash">Software Design</div>
-        </Link>
-        <Link href="/decks/java-basics">
-          <div className="category-box flash">Java Basics</div>
-        </Link>
-        <Link href="/decks/algorithms">
-          <div className="category-box flash">Algorithms</div>
-        </Link>
-        <Link href="/decks/data-structures">
-          <div className="category-box flash">Data Structures</div>
-        </Link>
+    <div className="app-container">
+      {/* Sidebar */}
+      <div className="sidebar">
+        <Link href="/" className="active">Home</Link>
+        <Link href="/login">Login</Link>
+        <Link href="/create-deck">Create Deck</Link>
+        <Link href="/settings">Settings</Link>
       </div>
 
-      {/* Form to Add a New User */}
-      <div className="add-user-section">
-        <h2>Add a New User</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit">Add User</button>
-        </form>
+      {/* Main Content */}
+      <div className="main-content">
+        <h1>Welcome to FlashForge!</h1>
+        <p>Your flashcard tool for Software Engineering and CS students.</p>
+
+        {/* Flashcard Categories */}
+        <div className="deck-categories">
+          <Link href="/decks/software-design">
+            <div className="category-box flash">Software Design</div>
+          </Link>
+          <Link href="/decks/java-basics">
+            <div className="category-box flash">Java Basics</div>
+          </Link>
+          <Link href="/decks/algorithms">
+            <div className="category-box flash">Algorithms</div>
+          </Link>
+          <Link href="/decks/data-structures">
+            <div className="category-box flash">Data Structures</div>
+          </Link>
+        </div>
+
+        {/* Form to Add a New User */}
+        <div className="add-user-section">
+          <h2>Add a New User</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit">Add User</button>
+          </form>
+        </div>
       </div>
     </div>
   );
