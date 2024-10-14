@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+
 export default function Login() {
   return (
     <div className="login-container">
@@ -14,6 +16,7 @@ export default function Login() {
         <input type="password" placeholder="New Password" />
         <button type="submit">Sign Up</button>
       </form>
+      <div className="sidebar"><Navbar></Navbar></div>
     </div>
   );
 }

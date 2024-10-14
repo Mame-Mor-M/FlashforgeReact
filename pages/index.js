@@ -34,7 +34,7 @@ export default function Home() {
       <div className="sidebar">
         <Link href="/" className="active">Home</Link>
         <Link href="/login">Login</Link>
-        <Link href="/create-deck">Create Deck</Link>
+        <Link href="/create">Create Deck</Link>
         <Link href="/settings">Settings</Link>
       </div>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from '../../components/Navbar'; 
 
 const DeckPage = () => {
   const [currentCard, setCurrentCard] = useState(0);
@@ -14,15 +15,22 @@ const DeckPage = () => {
 
   return (
     <div className="flashcard-container">
-      <div className="flashcard" onClick={flipCard}>
-        {isFlipped ? deckData[currentCard].answer : deckData[currentCard].question}
+      <div className={`flashcard ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
+      <div className="front">
+          {deckData[currentCard].question}
+        </div>
+        <div className="back">
+          {deckData[currentCard].answer}
+        </div>
       </div>
       <div className="controls">
-        <button onClick={() => setCurrentCard((currentCard - 1 + deckData.length) % deckData.length)}>Previous</button>
-        <button onClick={() => setCurrentCard((currentCard + 1) % deckData.length)}>Next</button>
+        <button onClick={() => setCurrentCard((currentCard - 1 + deckData.length) % deckData.length)}>←</button>
+        <button onClick={() => setCurrentCard((currentCard + 1) % deckData.length)}>→</button>
       </div>
-    </div>
+      <div className="sidebar"><Navbar></Navbar></div>
+    </div>   
   );
+  
 };
 
 export default DeckPage;

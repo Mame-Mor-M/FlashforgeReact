@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function Create() {
   const [cards, setCards] = useState([{ question: '', answer: '' }]);
@@ -35,6 +36,7 @@ export default function Create() {
               onChange={(e) => handleInputChange(index, 'answer', e.target.value)}
               className="input-field"
             />
+            <div className="sidebar"><Navbar></Navbar></div>
           </div>
         ))}
         <button type="button" onClick={addCard} className="add-card-btn">

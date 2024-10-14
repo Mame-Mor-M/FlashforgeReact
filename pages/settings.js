@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function Settings() {
     const [darkMode, setDarkMode] = useState(false);
@@ -43,6 +44,7 @@ export default function Settings() {
                     checked={darkMode}
                     onChange={handleDarkModeToggle}
                 />
+                <div className="sidebar"><Navbar></Navbar></div>
             </div>
         </div>
     );
